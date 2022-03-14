@@ -36,7 +36,7 @@ bool inject(const std::wstring& proc_name, const std::wstring& dll_name) {
 	log("[+] Injecting %ws into %ws\n", dll_name.c_str(), proc_name.c_str());
 
 	auto pid = get_pid(proc_name);
-	if (!pid) {	err("[!] Failed to get process ID\n"); }
+	if (!pid) { err("[!] Failed to get process ID\n"); }
 
 	auto proc = OpenProcess(PROCESS_ALL_ACCESS, NULL, pid);
 	if (!proc) { err("[!] Failed to get process handle: %d\n", GetLastError()); }
